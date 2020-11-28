@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended.Shapes;
 
 namespace MonoGame.Extended
 {
@@ -29,20 +28,20 @@ namespace MonoGame.Extended
             return _whitePixelTexture;
         }
 
-        /// <summary>
-        ///     Draws a closed polygon from a <see cref="Polygon" /> shape
-        /// </summary>
-        /// <param name="spriteBatch">The destination drawing surface</param>
-        /// ///
-        /// <param name="position">Where to position the polygon</param>
-        /// <param name="polygon">The polygon to draw</param>
-        /// <param name="color">The color to use</param>
-        /// <param name="thickness">The thickness of the lines</param>
-        /// /// <param name="layerDepth">The depth of the layer of this shape</param>
-        public static void DrawPolygon(this SpriteBatch spriteBatch, Vector2 position, Polygon polygon, Color color, float thickness = 1f, float layerDepth = 0)
-        {
-            DrawPolygon(spriteBatch, position, polygon.Vertices, color, thickness, layerDepth);
-        }
+        ///// <summary>
+        /////     Draws a closed polygon from a <see cref="Polygon" /> shape
+        ///// </summary>
+        ///// <param name="spriteBatch">The destination drawing surface</param>
+        ///// ///
+        ///// <param name="position">Where to position the polygon</param>
+        ///// <param name="polygon">The polygon to draw</param>
+        ///// <param name="color">The color to use</param>
+        ///// <param name="thickness">The thickness of the lines</param>
+        ///// /// <param name="layerDepth">The depth of the layer of this shape</param>
+        //public static void DrawPolygon(this SpriteBatch spriteBatch, Vector2 position, Polygon polygon, Color color, float thickness = 1f, float layerDepth = 0)
+        //{
+        //    DrawPolygon(spriteBatch, position, polygon.Vertices, color, thickness, layerDepth);
+        //}
 
         /// <summary>
         ///     Draws a closed polygon from an array of points
@@ -81,17 +80,17 @@ namespace MonoGame.Extended
             spriteBatch.Draw(texture, point1, null, color, angle, Vector2.Zero, scale, SpriteEffects.None, layerDepth);
         }
 
-        /// <summary>
-        /// Draws a filled rectangle
-        /// </summary>
-        /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="rectangle">The rectangle to draw</param>
-        /// <param name="color">The color to draw the rectangle in</param>
-        /// <param name="layerDepth">The depth of the layer of this shape</param>
-        public static void FillRectangle(this SpriteBatch spriteBatch, RectangleF rectangle, Color color, float layerDepth = 0)
-        {
-            FillRectangle(spriteBatch, rectangle.Position, rectangle.Size, color, layerDepth);
-        }
+        ///// <summary>
+        ///// Draws a filled rectangle
+        ///// </summary>
+        ///// <param name="spriteBatch">The destination drawing surface</param>
+        ///// <param name="rectangle">The rectangle to draw</param>
+        ///// <param name="color">The color to draw the rectangle in</param>
+        ///// <param name="layerDepth">The depth of the layer of this shape</param>
+        //public static void FillRectangle(this SpriteBatch spriteBatch, RectangleF rectangle, Color color, float layerDepth = 0)
+        //{
+        //    FillRectangle(spriteBatch, rectangle.Position, rectangle.Size, color, layerDepth);
+        //}
 
         /// <summary>
         /// Draws a filled rectangle
@@ -121,51 +120,51 @@ namespace MonoGame.Extended
             FillRectangle(spriteBatch, new Vector2(x, y), new Size2(width, height), color, layerDepth);
         }
 
-        /// <summary>
-        /// Draws a rectangle with the thickness provided
-        /// </summary>
-        /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="rectangle">The rectangle to draw</param>
-        /// <param name="color">The color to draw the rectangle in</param>
-        /// <param name="thickness">The thickness of the lines</param>
-        /// <param name="layerDepth">The depth of the layer of this shape</param>
-        public static void DrawRectangle(this SpriteBatch spriteBatch, RectangleF rectangle, Color color, float thickness = 1f, float layerDepth = 0)
-        {
-            var texture = GetTexture(spriteBatch);
-            var topLeft = new Vector2(rectangle.X, rectangle.Y);
-            var topRight = new Vector2(rectangle.Right - thickness, rectangle.Y);
-            var bottomLeft = new Vector2(rectangle.X, rectangle.Bottom - thickness);
-            var horizontalScale = new Vector2(rectangle.Width, thickness);
-            var verticalScale = new Vector2(thickness, rectangle.Height);
+        ///// <summary>
+        ///// Draws a rectangle with the thickness provided
+        ///// </summary>
+        ///// <param name="spriteBatch">The destination drawing surface</param>
+        ///// <param name="rectangle">The rectangle to draw</param>
+        ///// <param name="color">The color to draw the rectangle in</param>
+        ///// <param name="thickness">The thickness of the lines</param>
+        ///// <param name="layerDepth">The depth of the layer of this shape</param>
+        //public static void DrawRectangle(this SpriteBatch spriteBatch, RectangleF rectangle, Color color, float thickness = 1f, float layerDepth = 0)
+        //{
+        //    var texture = GetTexture(spriteBatch);
+        //    var topLeft = new Vector2(rectangle.X, rectangle.Y);
+        //    var topRight = new Vector2(rectangle.Right - thickness, rectangle.Y);
+        //    var bottomLeft = new Vector2(rectangle.X, rectangle.Bottom - thickness);
+        //    var horizontalScale = new Vector2(rectangle.Width, thickness);
+        //    var verticalScale = new Vector2(thickness, rectangle.Height);
 
-            spriteBatch.Draw(texture, topLeft, null, color, 0f, Vector2.Zero, horizontalScale, SpriteEffects.None, layerDepth);
-            spriteBatch.Draw(texture, topLeft, null, color, 0f, Vector2.Zero, verticalScale, SpriteEffects.None, layerDepth);
-            spriteBatch.Draw(texture, topRight, null, color, 0f, Vector2.Zero, verticalScale, SpriteEffects.None, layerDepth);
-            spriteBatch.Draw(texture, bottomLeft, null, color, 0f, Vector2.Zero, horizontalScale, SpriteEffects.None, layerDepth);
-        }
+        //    spriteBatch.Draw(texture, topLeft, null, color, 0f, Vector2.Zero, horizontalScale, SpriteEffects.None, layerDepth);
+        //    spriteBatch.Draw(texture, topLeft, null, color, 0f, Vector2.Zero, verticalScale, SpriteEffects.None, layerDepth);
+        //    spriteBatch.Draw(texture, topRight, null, color, 0f, Vector2.Zero, verticalScale, SpriteEffects.None, layerDepth);
+        //    spriteBatch.Draw(texture, bottomLeft, null, color, 0f, Vector2.Zero, horizontalScale, SpriteEffects.None, layerDepth);
+        //}
 
-        /// <summary>
-        /// Draws a rectangle with the thickness provided
-        /// </summary>
-        /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="location">Where to draw</param>
-        /// <param name="size">The size of the rectangle</param>
-        /// <param name="color">The color to draw the rectangle in</param>
-        /// <param name="thickness">The thickness of the line</param>
-        /// <param name="layerDepth">The depth of the layer of this shape</param>
-        public static void DrawRectangle(this SpriteBatch spriteBatch, Vector2 location, Size2 size, Color color, float thickness = 1f, float layerDepth = 0)
-        {
-            DrawRectangle(spriteBatch, new RectangleF(location.X, location.Y, size.Width, size.Height), color, thickness, layerDepth);
-        }
+        ///// <summary>
+        ///// Draws a rectangle with the thickness provided
+        ///// </summary>
+        ///// <param name="spriteBatch">The destination drawing surface</param>
+        ///// <param name="location">Where to draw</param>
+        ///// <param name="size">The size of the rectangle</param>
+        ///// <param name="color">The color to draw the rectangle in</param>
+        ///// <param name="thickness">The thickness of the line</param>
+        ///// <param name="layerDepth">The depth of the layer of this shape</param>
+        //public static void DrawRectangle(this SpriteBatch spriteBatch, Vector2 location, Size2 size, Color color, float thickness = 1f, float layerDepth = 0)
+        //{
+        //    DrawRectangle(spriteBatch, new RectangleF(location.X, location.Y, size.Width, size.Height), color, thickness, layerDepth);
+        //}
 
 
-        /// <summary>
-        /// Draws a rectangle outline.
-        /// </summary>
-        public static void DrawRectangle(this SpriteBatch spriteBatch, float x, float y, float width, float height, Color color, float thickness = 1f, float layerDepth = 0)
-        {
-            DrawRectangle(spriteBatch, new RectangleF(x, y, width, height), color, thickness, layerDepth);
-        }
+        ///// <summary>
+        ///// Draws a rectangle outline.
+        ///// </summary>
+        //public static void DrawRectangle(this SpriteBatch spriteBatch, float x, float y, float width, float height, Color color, float thickness = 1f, float layerDepth = 0)
+        //{
+        //    DrawRectangle(spriteBatch, new RectangleF(x, y, width, height), color, thickness, layerDepth);
+        //}
 
         /// <summary>
         /// Draws a line from point1 to point2 with an offset
@@ -238,19 +237,19 @@ namespace MonoGame.Extended
             spriteBatch.Draw(GetTexture(spriteBatch), position + offset, null, color, 0f, Vector2.Zero, scale, SpriteEffects.None, layerDepth);
         }
 
-        /// <summary>
-        /// Draw a circle from a <see cref="CircleF" /> shape
-        /// </summary>
-        /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="circle">The circle shape to draw</param>
-        /// <param name="sides">The number of sides to generate</param>
-        /// <param name="color">The color of the circle</param>
-        /// <param name="thickness">The thickness of the lines used</param>
-        /// <param name="layerDepth">The depth of the layer of this shape</param>
-        public static void DrawCircle(this SpriteBatch spriteBatch, CircleF circle, int sides, Color color, float thickness = 1f, float layerDepth = 0)
-        {
-            DrawCircle(spriteBatch, circle.Center, circle.Radius, sides, color, thickness, layerDepth);
-        }
+        ///// <summary>
+        ///// Draw a circle from a <see cref="CircleF" /> shape
+        ///// </summary>
+        ///// <param name="spriteBatch">The destination drawing surface</param>
+        ///// <param name="circle">The circle shape to draw</param>
+        ///// <param name="sides">The number of sides to generate</param>
+        ///// <param name="color">The color of the circle</param>
+        ///// <param name="thickness">The thickness of the lines used</param>
+        ///// <param name="layerDepth">The depth of the layer of this shape</param>
+        //public static void DrawCircle(this SpriteBatch spriteBatch, CircleF circle, int sides, Color color, float thickness = 1f, float layerDepth = 0)
+        //{
+        //    DrawCircle(spriteBatch, circle.Center, circle.Radius, sides, color, thickness, layerDepth);
+        //}
 
         /// <summary>
         /// Draw a circle
